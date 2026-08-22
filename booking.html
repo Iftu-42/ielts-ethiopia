@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Book an IELTS Ethiopia coaching, evaluation, skill test or consultation session.">
+  <title>Book a Session | IELTS Ethiopia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/lucide-static@latest/font/lucide.css">
+  <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar container">
+      <a class="brand" href="index.html"><img src="assets/i.png" alt="IELTS Ethiopia logo" class="brand-logo"><span class="brand-fallback">IELTS <small>ETHIOPIA</small></span></a>
+      <button class="mobile-menu-btn" aria-label="Open menu" aria-expanded="false"><i data-lucide="menu"></i></button>
+      <div class="nav-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="courses.html">Courses</a><a href="contact.html">Contact</a></div>
+      <a class="btn btn-primary nav-cta" href="booking.html"><i data-lucide="calendar-days"></i> Book Session</a>
+    </nav>
+  </header>
+
+  <main class="booking-page">
+    <section class="booking-hero">
+      <div class="container">
+        <span class="eyebrow eyebrow-light">BOOKING</span>
+        <h1>Choose your service and <span>reserve your slot.</span></h1>
+        <p>Your booking will be saved and we will contact you with the next payment and confirmation steps.</p>
+      </div>
+    </section>
+
+    <section class="section booking-section">
+      <div class="container booking-layout">
+        <div class="booking-main">
+          <div class="stepper">
+            <div class="step active" data-step="1"><span>1</span><strong>Service</strong></div>
+            <div class="step-line"></div>
+            <div class="step" data-step="2"><span>2</span><strong>Details</strong></div>
+            <div class="step-line"></div>
+            <div class="step" data-step="3"><span>3</span><strong>Agreement</strong></div>
+          </div>
+
+          <form id="bookingForm">
+            <section class="booking-step active" data-step-panel="1">
+              <div class="section-heading section-heading-left compact"><span class="eyebrow">STEP 1</span><h2>What would you like to book?</h2><p>Select a service first. The package options will appear automatically.</p></div>
+              <div class="service-choice-grid">
+                <button type="button" class="service-choice" data-service="one-on-one"><i data-lucide="users-round"></i><strong>1-on-1 Coaching</strong><span>Personalized IELTS preparation</span></button>
+                <button type="button" class="service-choice" data-service="mock"><i data-lucide="file-check-2"></i><strong>Mock & Evaluation</strong><span>Friday, Saturday & Sunday</span></button>
+                <button type="button" class="service-choice" data-service="skill"><i data-lucide="headphones"></i><strong>Individual Skill Test</strong><span>Listening, Reading, Writing or Speaking</span></button>
+                <button type="button" class="service-choice" data-service="consultation"><i data-lucide="message-circle-more"></i><strong>15-Minute Consultation</strong><span>100 ETB</span></button>
+              </div>
+              <div class="dynamic-package-wrap hidden" id="packageSelector"></div>
+              <div class="step-actions"><button type="button" class="btn btn-primary next-step" disabled>Continue <i data-lucide="arrow-right"></i></button></div>
+            </section>
+
+            <section class="booking-step" data-step-panel="2">
+              <div class="section-heading section-heading-left compact"><span class="eyebrow">STEP 2</span><h2>Tell us about you.</h2><p>We use these details to contact you about your booking.</p></div>
+              <div class="form-grid">
+                <label>Full Name *<input type="text" name="name" required placeholder="Your full name"></label>
+                <label>Email *<input type="email" name="email" required placeholder="you@example.com"></label>
+                <label>Phone Number *<input type="tel" name="phone" required placeholder="+251 ..."></label>
+                <label>Telegram Username *<input type="text" name="telegram" required placeholder="@username"></label>
+              </div>
+              <div class="step-actions"><button type="button" class="btn btn-ghost prev-step"><i data-lucide="arrow-left"></i> Back</button><button type="button" class="btn btn-primary next-step">Continue <i data-lucide="arrow-right"></i></button></div>
+            </section>
+
+            <section class="booking-step" data-step-panel="3">
+              <div class="section-heading section-heading-left compact"><span class="eyebrow">STEP 3</span><h2>Review and agree.</h2><p>We will contact you to arrange the date and time that works for you.</p></div>
+              <div class="schedule-note hidden" id="mockScheduleNote"><i data-lucide="calendar-days"></i><span>Mock and evaluation bookings are available only on <strong>Friday, Saturday and Sunday</strong>. We will assign your available date and time with you.</span></div>
+              <div class="policy-box"><i data-lucide="shield-check"></i><div><strong>Booking & payment policy</strong><p>Payments are non-refundable once a booking is confirmed. By submitting this request, you agree that IELTS Ethiopia will contact you to arrange your session details and confirmation.</p><label class="check-label"><input type="checkbox" id="policy" required> <span>I have read and agree to the booking and payment policy.</span></label></div></div>
+              <div class="step-actions"><button type="button" class="btn btn-ghost prev-step"><i data-lucide="arrow-left"></i> Back</button><button type="submit" class="btn btn-primary">Submit Booking <i data-lucide="check"></i></button></div>
+              <p class="form-status" id="bookingStatus"></p>
+            </section>
+          </form>
+
+          <div class="booking-success hidden" id="bookingSuccess">
+            <div class="success-icon"><i data-lucide="check"></i></div>
+            <span class="eyebrow">BOOKING RECEIVED</span>
+            <h2>Your booking request has been submitted.</h2>
+            <p>We have recorded your request. We will contact you through Telegram or phone with the next payment and confirmation steps.</p>
+            <div class="booking-reference"><span>Booking ID</span><strong id="bookingId"></strong></div>
+            <a class="btn btn-primary" href="index.html">Back to Home <i data-lucide="arrow-right"></i></a>
+          </div>
+        </div>
+
+        <aside class="booking-summary">
+          <div class="summary-card">
+            <span class="eyebrow">YOUR SELECTION</span>
+            <div class="summary-empty" id="summaryEmpty"><i data-lucide="clipboard-list"></i><p>Select a service to see your booking summary.</p></div>
+            <div class="summary-content hidden" id="summaryContent">
+              <span class="summary-label" id="summaryService"></span>
+              <h3 id="summaryPackage"></h3>
+              <strong class="summary-price" id="summaryPrice"></strong>
+              <div class="summary-divider"></div>
+              <div class="summary-line"><i data-lucide="calendar-clock"></i><span>Schedule arranged after booking</span></div>
+              <div class="summary-divider"></div>
+              <a href="courses.html" class="text-link">Review course details <i data-lucide="arrow-up-right"></i></a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand"><a class="brand brand-footer" href="index.html"><img src="assets/i.png" alt="IELTS Ethiopia logo" class="brand-logo"><span class="brand-fallback">IELTS <small>ETHIOPIA</small></span></a><p>Practical IELTS preparation and support for Ethiopian students.</p></div>
+      <div><h4>Explore</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="courses.html">Courses</a><a href="contact.html">Contact</a></div>
+      <div><h4>Programs</h4><a href="courses.html#one-on-one">1-on-1 Coaching</a><a href="courses.html#mock">Mock & Evaluation</a><a href="courses.html#skills">Skill Tests</a></div>
+      <div>
+<h4>Connect</h4>
+  <a href="https://t.me/IELTS_ETHIOPIA1" class="social-link telegram" aria-label="Telegram">
+    <i class="fa-brands fa-telegram"></i> Telegram
+  </a>
+  <a href="https://www.tiktok.com/@ielts_ethiopia?_r=1&_t=ZS-93mpM45xzk5" class="social-link tiktok" aria-label="TikTok">
+    <i class="fa-brands fa-tiktok"></i> TikTok
+  </a>
+  <a href="https://www.linkedin.com/company/ielts-ethiopia/" class="social-link linkedin" aria-label="LinkedIn">
+    <i class="fa-brands fa-linkedin"></i> LinkedIn
+  </a>
+  <a href="https://youtube.com/@ielts_ethiopia?si=gWr7fj6ndq84Vk53" class="social-link youtube" aria-label="YouTube">
+    <i class="fa-brands fa-youtube"></i> YouTube
+  </a>
+      </div>
+    </div>
+    <div class="container footer-bottom"><span>© 2026 IELTS Ethiopia. All rights reserved.</span><span>Open Your Future.</span></div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/main.js"></script>
+  <script src="js/booking.js"></script>
+</body>
+</html>
